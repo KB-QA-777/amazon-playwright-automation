@@ -1,0 +1,22 @@
+{
+  "name": "amazon-test-framework",
+  "version": "1.0.0",
+  "description": "E2E Test Automation Framework for Amazon using Playwright",
+  "scripts": {
+    "pretest": "rimraf allure-results && rimraf allure-report && rimraf test-results && rimraf playwright-report",
+    "test": "npx playwright test",
+    "report": "allure generate allure-results --clean && allure open allure-report",
+    "test:report": "npm run pretest && npm run test && npm run report",
+    "show-trace": "npx playwright show-trace test-results/trace.zip",
+    "show-report": "npx playwright show-report playwright-report"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.42.0",
+    "allure-playwright": "^2.12.0",
+    "typescript": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "rimraf": "^5.0.5"
+  }
+}
